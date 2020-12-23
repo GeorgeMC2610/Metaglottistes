@@ -721,12 +721,12 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 6 "george_1.lex"
-++num_x;
+{++num_x;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 8 "george_1.lex"
-++num_y;
+{++num_y;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -1757,5 +1757,8 @@ char **argv;
 		yyin = fopen( argv[0], "r" );
 	else
 		yyin = stdin;
-	yylex();
+
+	if (num_x == num_y)
+		printf("The number of 'x' chars, is the same as the 'y' chars");
 }
+
