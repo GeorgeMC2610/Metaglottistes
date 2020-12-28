@@ -29,9 +29,34 @@ int main()
 		{
 			//define the stack to be used, and the input length of the input (to use it in the for loop).
 			stack<char> NAS_stack;
+			NAS_stack.push('n');
 			int input_length = input.length();
+			bool accepted_input = true;
+
+			for (int i = 0; i < input_length; i++)
+			{
 
 
+				char previous_element = NAS_stack.top();
+				char current_element  = input.at(i);
+
+				if ((previous_element == 'y' && current_element == 'x') || (current_element == 'y' && i == 0))
+				{
+					accepted_input = false;
+					break;
+				}
+					
+				
+				if (current_element == 'x')
+					NAS_stack.push(current_element);
+				else
+					NAS_stack.pop();
+			}
+
+			if (NAS_stack.empty())
+				cout << "String '" << input << "' is accepted." << endl;
+			else
+				cout << "String '" << input << "' is not accepted." << endl;
 		}
 		//if the user wants to stop the program, break out of the loop, then exit.
 		else if (input.compare("stop") == 0)
