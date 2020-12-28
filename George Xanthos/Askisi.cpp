@@ -34,7 +34,7 @@ while (start) {
     do  {
     cin >> choice;
     }
-    while (choice.compare("n")==0 || choice.compare("<E>")==0);
+    while (choice.compare("n")==1 or choice.compare("<E>")==1);
 
     
   }
