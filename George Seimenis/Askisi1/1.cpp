@@ -29,40 +29,56 @@ int main()
 		{
 			//define the stack to be used, and the input length of the input (to use it in the for loop).
 			stack<char> NAS_stack;
-			NAS_stack.push('n');
 			int input_length = input.length();
+
+			//push a dummy element into the stack. This will help us make various tests easier. Also, keep track of the accepted input state.
+			NAS_stack.push('n');
 			bool accepted_input = true;
 
+			//for every character in the input
 			for (int i = 0; i < input_length; i++)
 			{
-
-
+				//save the previous element and the current element to these variables.
 				char previous_element = NAS_stack.top();
 				char current_element  = input.at(i);
 
-				if ((previous_element == 'y' && current_element == 'x') || (current_element == 'y' && i == 0))
+				//if the input starts with a 'y' character or has an 'x' right after a 'y', it means that the input is invalid.
+				if ((previous_element == 'n' && current_element == 'y') || (previous_element == 'y' && current_element == 'x'))
 				{
 					accepted_input = false;
 					break;
 				}
 					
-				
+				//if the current character is an 'x', it means that it can be pushed.
 				if (current_element == 'x')
 					NAS_stack.push(current_element);
+				//otherwise, if it is a 'y', it means that we have to pop one character out from the stack.
 				else
+				{
 					NAS_stack.pop();
+					//if the stack is empty, which means that the dummy 'n' character doesn't exist, it also means that there are more 'y' than 'x' characters, so the input is invalid.
+					if (NAS_stack.empty())
+					{
+						accepted_input = false;
+						break;
+					}
+				}
 			}
 
-			if (NAS_stack.empty())
+			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
+			if (NAS_stack.top() == 'n' && accepted_input)
 				cout << "String '" << input << "' is accepted." << endl;
+			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
 			else
-				cout << "String '" << input << "' is not accepted." << endl;
+				cout << "String '" << input << "' is NOT accepted." << endl;
 		}
+
 		//if the user wants to stop the program, break out of the loop, then exit.
 		else if (input.compare("stop") == 0)
 		{
 			break;
 		}	
+		
 		//if the input doesn't match any case above, there must be some mistake. Inform the user accoordingly.
 		else
 		{
