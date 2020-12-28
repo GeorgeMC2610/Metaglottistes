@@ -2,7 +2,6 @@
 #include <stack>
 #include <string>
 #include <regex>
-#include <typeinfo>
 
 using namespace std;
 
@@ -78,7 +77,7 @@ int main()
 		{
 			break;
 		}	
-		
+
 		//if the input doesn't match any case above, there must be some mistake. Inform the user accoordingly.
 		else
 		{
