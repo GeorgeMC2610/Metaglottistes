@@ -5,14 +5,17 @@
 
 using namespace std;
 
+//need this function to display the stack below.
 string DisplayStack(stack<char> s)
 {	
+	//display the stack with the current elements available in one line.
 	while (!s.empty())
 	{
 		cout << s.top();
 		s.pop();
 	}
 
+	//return no string as we're using cout above to display the stack in one line.
 	return "";
 }
 
@@ -20,7 +23,7 @@ int main()
 {
 	//initial message to be shown
 	cout << "Exercise 1 in 'Metaglottistes.'" << endl;
-	cout << "ADMISSIONS: Let q1, q2 be the states of the Deterministic Stack Automaton, where q1 is a non-final state and q2 is a final state." << endl;
+	cout << "ADMISSIONS: Let q1, q2 be the states of the Deterministic Stack Automaton, where q1 is a non-final state and q2 is a final state. The stack, already has a dummy element 'n' in the bottom, which helps the coding part." << endl;
 	cout << "As soon as you type 'stop', the program will exit." << endl << endl;
 
 	string input;
@@ -79,18 +82,21 @@ int main()
 						state = "q2";
 				}
 
+				//after every loop, we create a substring of the input, representing the remainder of the elements to be tested.
+				//we also use DisplayStack(), which outputs the stack after every loop.
 				string remaining_input = input.substr(i+1, input_length - 1);
 				cout << (i+1) << ". Current State: " << state << ", Stack Items: " << DisplayStack(NAS_stack) << ", Remaining Input: " << remaining_input << endl;
 			}
 
+			//if the errors are none of the above, we display this error, if the string is rejected, as it is the only possible case left.
 			error_output = (error_output.compare("") == 0)? "Stack is not empty." : error_output;
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (NAS_stack.top() == 'n' && accepted_input)
-				cout << endl << "String '" << input << "' is accepted." << endl;
+				cout << endl << "String '" << input << "' is accepted." << endl << endl;
 			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
 			else
-				cout << endl << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl;
+				cout << endl << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl << endl;
 		}
 
 		//if the user wants to stop the program, break out of the loop, then exit.
@@ -102,7 +108,7 @@ int main()
 		//if the input doesn't match any case above, there must be some mistake. Inform the user accoordingly.
 		else
 		{
-			cout << "Incorrect Input. Only x or y characters are allowed." << endl;
+			cout << "Incorrect Input. Only x or y characters are allowed." << endl << endl;
 		}
 			
 	} while(true);
