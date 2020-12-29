@@ -5,10 +5,22 @@
 
 using namespace std;
 
+string DisplayStack(stack<char> s)
+{	
+	while (!s.empty())
+	{
+		cout << s.top();
+		s.pop();
+	}
+
+	return "";
+}
+
 int main()
 {
 	//initial message to be shown
 	cout << "Exercise 1 in 'Metaglottistes.'" << endl;
+	cout << "ADMISSIONS: Let q1, q2 be the states of the Deterministic Stack Automaton, where q1 is a non-final state and q2 is a final state." << endl;
 	cout << "As soon as you type 'stop', the program will exit." << endl << endl;
 
 	string input;
@@ -34,18 +46,20 @@ int main()
 			NAS_stack.push('n');
 			bool accepted_input = true;
 			string error_output = "";
+			string state = "q1";
 
 			//for every character in the input
 			for (int i = 0; i < input_length; i++)
 			{
 				//save the previous element and the current element to these variables.
-				char previous_element = NAS_stack.top();
+				char stack_last_element = NAS_stack.top();
 				char current_element  = input.at(i);
 
 				//if the input starts with a 'y' character it is not allowed by definition.
-				if ((previous_element == 'n' && current_element == 'y'))
+				if ((stack_last_element == 'n' && current_element == 'y'))
 				{
 					error_output   = "Char 'y' either appeared earlier or too many times than expected.";
+					state          = "q1";
 					accepted_input = false;
 					break;
 				}
@@ -54,32 +68,29 @@ int main()
 				if (current_element == 'x')
 				{
 					NAS_stack.push(current_element);
-					cout << "Pushed char 'x' into the stack." << endl;
+					state = "q1";
 				}
 				//otherwise, if it is a 'y', it means that we have to pop one character out from the stack.
 				else
 				{
 					NAS_stack.pop();
-					//if the stack is empty, which means that the dummy 'n' character doesn't exist, it also means that there are more 'y' than 'x' characters, so the input is invalid.
-					if (NAS_stack.empty())
-					{
-						cout << "Popped char 'n' from the stack! ";
-						error_output   = "Found too many 'y' chars.";
-						accepted_input = false;
-						break;
-					}
-					cout << "Popped char 'x' from the stack." << endl;
+
+					if (NAS_stack.top() == 'n')
+						state = "q2";
 				}
+
+				string remaining_input = input.substr(i+1, input_length - 1);
+				cout << (i+1) << ". Current State: " << state << ", Stack Items: " << DisplayStack(NAS_stack) << ", Remaining Input: " << remaining_input << endl;
 			}
 
 			error_output = (error_output.compare("") == 0)? "Stack is not empty." : error_output;
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (NAS_stack.top() == 'n' && accepted_input)
-				cout << "String '" << input << "' is accepted." << endl;
+				cout << endl << "String '" << input << "' is accepted." << endl;
 			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
 			else
-				cout << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl;
+				cout << endl << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl;
 		}
 
 		//if the user wants to stop the program, break out of the loop, then exit.
