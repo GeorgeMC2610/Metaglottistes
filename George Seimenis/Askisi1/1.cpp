@@ -33,6 +33,7 @@ int main()
 			//push a dummy element into the stack. This will help us make various tests easier. Also, keep track of the accepted input state.
 			NAS_stack.push('n');
 			bool accepted_input = true;
+			string error_output = "";
 
 			//for every character in the input
 			for (int i = 0; i < input_length; i++)
@@ -41,16 +42,20 @@ int main()
 				char previous_element = NAS_stack.top();
 				char current_element  = input.at(i);
 
-				//if the input starts with a 'y' character or has an 'x' right after a 'y', it means that the input is invalid.
-				if ((previous_element == 'n' && current_element == 'y') || (previous_element == 'y' && current_element == 'x'))
+				//if the input starts with a 'y' character it is not allowed by definition.
+				if ((previous_element == 'n' && current_element == 'y'))
 				{
+					error_output   = "Char 'y' either appeared earlier or too many times than expected.";
 					accepted_input = false;
 					break;
 				}
 					
 				//if the current character is an 'x', it means that it can be pushed.
 				if (current_element == 'x')
+				{
 					NAS_stack.push(current_element);
+					cout << "Pushed char 'x' into the stack." << endl;
+				}
 				//otherwise, if it is a 'y', it means that we have to pop one character out from the stack.
 				else
 				{
@@ -58,18 +63,23 @@ int main()
 					//if the stack is empty, which means that the dummy 'n' character doesn't exist, it also means that there are more 'y' than 'x' characters, so the input is invalid.
 					if (NAS_stack.empty())
 					{
+						cout << "Popped char 'n' from the stack! ";
+						error_output   = "Found too many 'y' chars.";
 						accepted_input = false;
 						break;
 					}
+					cout << "Popped char 'x' from the stack." << endl;
 				}
 			}
+
+			error_output = (error_output.compare("") == 0)? "Stack is not empty." : error_output;
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (NAS_stack.top() == 'n' && accepted_input)
 				cout << "String '" << input << "' is accepted." << endl;
 			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
 			else
-				cout << "String '" << input << "' is NOT accepted." << endl;
+				cout << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl;
 		}
 
 		//if the user wants to stop the program, break out of the loop, then exit.
