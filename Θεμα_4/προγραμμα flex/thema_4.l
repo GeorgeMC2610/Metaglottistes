@@ -1,7 +1,7 @@
 /*regex declarations */
 
-X [a-zA-Z]
-Y [a-zA-Z]|[1-9]
+X [a-zA-Z_][a-zA-Z1-9_]*
+Y [a-zA-Z_][a-zA-Z1-9_]*|[1-9]
 O [+*/%-]
 W1 [ \t\n]
 W2 [ \t]
@@ -35,6 +35,6 @@ printf("You forgot some constants or/and variables in the following expression: 
 %%
 
 main() {
-printf("Give some variable declaration expressions.Examples:'x=k+4;', 'x =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained and variable names should be one letter only:\n");
+printf("Give some variable declaration expressions.Examples:'x=random_name+4;', 'my_var =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained and variable names should be one letter only:\n");
 yylex();
 }
