@@ -1,18 +1,28 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int main(int argc, char const *argv[]) {
-  bool start = true;
-string answer ;
-string str;
-string choice;
 
 
-cout << "The rules of our grammar are :" << endl;
+
+void Display () {
+  cout << "The rules of our grammar are :" << endl;
 cout << "E --> Y" << endl;
 cout << "Y --> AB" << endl;
 cout << "A -->  n or  <E> " << endl;
 cout << "B--> -Y or +Y or empty" << endl;
+
+}
+
+
+
+
+
+int main(int argc, char const *argv[]) {
+  bool start = true;
+string answer,str,choice ;
+
+
+Display();
 
 while (start) {
   cout << "Do you want to start ???" << endl;
@@ -22,21 +32,22 @@ while (start) {
   } else {
     start = false;
   }
-  if (start) {
     str = "<E>";
     cout << str << endl;
     cout << "But <E> --> <Y>" << endl;
     cout << "str --> <Y>" << endl;
     cout << "But also <Y> --> <A><B>"<< endl;
     str =  "AB";
-    cout << "Your string is :  " << str << endl;  
+    cout << "Your string is :  " << str << endl;
     cout << "At this point you have to make a choice : " << endl;
-    do  {
+   are("-Y")==1) || (choice. do  {
     cin >> choice;
     }
-    while (choice.compare("n")==1 or choice.compare("<E>")==1);
-
+  
     
+
+
+
   }
 }
 
