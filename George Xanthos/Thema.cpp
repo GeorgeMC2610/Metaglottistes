@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h> 
+#include <stdlib.h>
+#include <ctime>
 using namespace std;
 
 
@@ -13,24 +14,30 @@ void theEpsilon (string& str) {
       cout << str[i] << '\n';
     }
 }
-void theAlpha (string& str) {
-        int v1 = rand() % 2 + 1;
+void theAlpha (string& str, int v1 ) {
+      //  cout << v1 << endl;
         if (v1==1) {
             for (int i =0; i<str.size(); i++) {
-                int y = strcmp(str[i],"A");
+                int y = str.compare("A");
                 if (y==0) {
-                    str[i].replace(i,"v");
+                    str.replace(i,"A","v");
                 }
             }
         } else  {
             for (int i =0; i<str.size(); i++) {
-            int y = strcmp(str[i],"A");
+            int y = str.compare("A");
                 if (y==0) {
-                    str[i].replace(i,"E");
+                    str.replace(i,"A","E");
+
                 }
             }
         }
-        
+
+
+
+
+          cout << str << endl;
+
 
 }
 
@@ -39,6 +46,9 @@ void theAlpha (string& str) {
 
 int main () {
 string str;
+srand((unsigned) time(0));
+int v1  = 1 + (rand() % 3);
+//cout << v1 << endl;
 str = "E";
 cout << "<E> --> (<Y>)" << endl;
 str = "Y";
@@ -46,7 +56,9 @@ cout << " The string is : " << str << endl ;
 cout << "<Y> --> <A><B> " <<endl;
 str = "ΑB";
 cout << "The string becomes : " << str << endl;
-theEpsilon(str);
+//theEpsilon(str);
+theAlpha(str,v1);
+cout << str << endl;
 /*for (int counnter =2; counter <21; counter++ ) {
 
 }
