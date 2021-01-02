@@ -7,7 +7,7 @@ using namespace std;
 
 //need this function to display the stack below.
 void DisplayStack(stack<char> s)
-{	
+{
 	//display the stack with the current elements available in one line.
 	while (!s.empty())
 	{
@@ -27,14 +27,14 @@ int main()
 	string input;
 
 	//this do-while loop is going to run forever, unless the user types 'stop'.
-	do 
+	do
 	{
 		//get the input from the user.
 		cout << "Input: ";
 		cin >> input;
 
 		//convert the input to lowercase.
-		transform(input.begin(), input.end(), input.begin(), [](unsigned char c){ return tolower(c); });
+		transform(input.begin(), input.end(), input.begin(), [](unsigned char c) { return tolower(c); });
 
 		//if the message matches the wanted input (which has to be only x and y chars), we proceed to do what the exercise defines.
 		if (regex_match(input, regex("[xy]+")))
@@ -54,17 +54,8 @@ int main()
 			{
 				//save the previous element and the current element to these variables.
 				char stack_last_element = NAS_stack.top();
-				char current_element  = input.at(i);
+				char current_element = input.at(i);
 
-				//if the input starts with a 'y' character it is not allowed by definition.
-				/*if ((stack_last_element == 'n' && current_element == 'y'))
-				{
-					error_output   = "Char 'y' either appeared earlier or too many times than expected.";
-					state          = "q1";
-					accepted_input = false;
-					break;
-				}*/
-					
 				//if the current character is an 'x', it means that it can be pushed.
 				if (current_element == 'x')
 				{
@@ -76,15 +67,16 @@ int main()
 				{
 					NAS_stack.pop();
 
+					//if the stack is now empty, after popping the last element (which is always going to be 'n'), that's an error. Inform the user accoordingly.
 					if (NAS_stack.empty())
 					{
-						error_output   = "Cannot pop an element from an empty stack.";
-						state          = "q1";
+						error_output = "Cannot pop an element from an empty stack.";
+						state = "q1";
 						accepted_input = false;
-						string remaining_input = input.substr(i+1, input_length - 1);
-						cout << (i+1) << ". Current State: " << state << ", Stack Items: ";
-						DisplayStack(NAS_stack);
-						cout << ", Remaining Input: " << remaining_input << endl;
+
+						//display what has happened, before breaking out of the loop.
+						string remaining_input = input.substr(i + 1, input_length - 1);
+						cout << (i + 1) << ". Current State: " << state << ", Stack Items: (empty), Remaining Input: " << remaining_input << endl;
 						break;
 					}
 					else if (NAS_stack.top() == 'n')
@@ -93,14 +85,14 @@ int main()
 
 				//after every loop, we create a substring of the input, representing the remainder of the elements to be tested.
 				//we also use DisplayStack(), which outputs the stack after every loop.
-				string remaining_input = input.substr(i+1, input_length - 1);
-				cout << (i+1) << ". Current State: " << state << ", Stack Items: ";
-				DisplayStack(NAS_stack); 
+				string remaining_input = input.substr(i + 1, input_length - 1);
+				cout << (i + 1) << ". Current State: " << state << ", Stack Items: ";
+				DisplayStack(NAS_stack);
 				cout << ", Remaining Input: " << remaining_input << endl;
 			}
 
 			//if the errors are none of the above, we display this error, if the string is rejected, as it is the only possible case left.
-			error_output = (error_output.compare("") == 0)? "Stack is not empty." : error_output;
+			error_output = (error_output.compare("") == 0) ? "Stack is not empty." : error_output;
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (NAS_stack.size() == 1 && accepted_input)
@@ -114,16 +106,16 @@ int main()
 		else if (input.compare("stop") == 0)
 		{
 			break;
-		}	
+		}
 
 		//if the input doesn't match any case above, there must be some mistake. Inform the user accoordingly.
 		else
 		{
 			cout << "Incorrect Input. Only x or y characters are allowed." << endl << endl;
 		}
-			
-	} while(true);
-	
+
+	} while (true);
+
 	//at this point, there's nothing else to be done. exit with code 0.
 	cout << "Program stopped" << endl;
 	return 0;
