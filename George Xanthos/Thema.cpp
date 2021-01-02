@@ -99,12 +99,12 @@ string theYpsilon(string str)
     return str;
 }
 bool checkCapitals(string str) {
-    bool set = true;
+    bool set = 0;
     for (int i = 0; i < str.length(); i++)
     {
         if (str[i] == 'A' || str[i] == 'E' || str[i] == 'B' || str[i] == 'Y')
         {
-            set = false;
+            set = 1;
         }
     }
     return set;
@@ -112,6 +112,7 @@ bool checkCapitals(string str) {
 
 int main()
 {
+    int counter = 1;
     string str;
     bool set2;
     str = "E";
@@ -123,6 +124,7 @@ int main()
     cout << "The string becomes : " << str << endl;
     for (int i = 1; i < 20; i++)
     {
+        counter++;
         if (checkCapitals(str) == 0)
         {
             for (int y = 0; y < str.length(); y++)
@@ -147,6 +149,35 @@ int main()
 
 
             }
+        }
+    }
+    if (counter == 20 && checkCapitals(str) == 1)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            switch (str[i])
+            {
+            case 'E':
+                cout << "According to grammae rules : <E> --> <Y> --> <A><B> : " << endl;
+                str = str.substr(0, i - 1) + "Y" + str.substr(i + 1, str.length() - 1);
+                cout << str << endl;
+                str = str.substr(0, i - 1) + "v" + str.substr(i + 1, str.length() - 1);
+            case 'Y':
+                cout << "The rule for <Y> is :  <Y> --> <A><B>" << endl;
+                str = str.substr(0, i - 1) + "v" + str.substr(i + 1, str.length() - 1);
+                cout << str << endl;
+            case 'A':
+                cout << "The <A> --> v  to finalize the prossecion" << endl;
+            case 'B':
+                str = str.substr(0, i - 1) + str.substr(i + 1, str.length() - 1);
+                cout << str << endl;
+
+
+            }
+
+
+
+
         }
     }
     cout << str;
