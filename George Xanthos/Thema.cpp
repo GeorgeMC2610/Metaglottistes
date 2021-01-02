@@ -12,42 +12,43 @@ void theEpsilon(string& str) {
         cout << str[i] << '\n';
     }
 }
-void theAlpha(string &str) {
-            int v1 = rand() % 2;
-      cout << v1 << endl;
-    if (v1 == 0) {
-        for (int i = 0; i < str.length(); i++) {
-            int y = str.compare("A");
-            if (y == 0) {
+
+string theAlpha(string str) 
+{
+    srand(time(NULL));
+    int v1 = (rand() % 2);
+
+    cout << v1 << endl;
+
+    if (v1 == 0) 
+    {
+        for (int i = 0; i < str.length(); i++) 
+        {
+            if (str[i] == 'A')
+            {
                 str[i] = 'v';
             }
         }
     }
-    else {
-        for (int i = 0; i < str.length(); i++) {
-            int y = str.compare("A");
-            if (y == 0) {
+    else 
+    {
+        for (int i = 0; i < str.length(); i++) 
+        {
+            if (str[i] == 'A')
+            {
                 str[i] = 'E';
-
             }
         }
     }
 
-    cout << str << endl;
-
-
-
-
-
+    return str;
 }
 
-
-
-
-int main() {
+int main() 
+{
     string str;
-    srand((unsigned)time(0));
-   // int v1 = rand() % 2;
+    
+    // int v1 = rand() % 2;
     str = "E";
     cout << "<E> --> (<Y>)" << endl;
     str = "Y";
@@ -56,8 +57,6 @@ int main() {
     str = "AB";
     cout << "The string becomes : " << str << endl;
 
-    theAlpha(str);
+    str = theAlpha(str);
     cout << str << endl;
-
-
 }
