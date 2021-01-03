@@ -98,8 +98,8 @@ string theYpsilon(string str)
     }
     return str;
 }
-bool checkCapitals(string str) {
-    bool set = 0;
+int  checkCapitals(string str) {
+    int set = 0;
     for (int i = 0; i < str.length(); i++)
     {
         if (str[i] == 'A' || str[i] == 'E' || str[i] == 'B' || str[i] == 'Y')
@@ -125,7 +125,7 @@ int main()
     for (int i = 1; i < 20; i++)
     {
         counter++;
-        if (checkCapitals(str) == 0)
+        if (checkCapitals(str) == 1)
         {
             for (int y = 0; y < str.length(); y++)
             {
