@@ -5,14 +5,14 @@
 #include <fcntl.h> 
 #include <io.h> //these are used in order to input/output greek letters
 
-#include "Threenode-tree_class.h" //our threenode-tree class header file
+#include "Header.h"; //our threenode-tree class header file
 
 using namespace std;
 
 int main()
 {        
     _setmode(_fileno(stdout), _O_WTEXT); //these are used in order to input/output greek letters 
-    _setmode(_fileno(stdin), _O_WTEXT);  //(also wcout,wcin,wregex,wstring,wchar_t and L before some outputs, are beeing used for same reason)
+    _setmode(_fileno(stdin), _O_WTEXT);  //(also wcout,wcin,wregex,wstring,wchar_t and L before some outputs, are being used for same reason)
      
 
                                                                   //SYNTAX TABLE
@@ -41,6 +41,7 @@ int main()
         bool match = regex_match(input, wregex(L"[()αβ*+-]+")); //If user's expression includes only (, ), α, β, *, -, + characters, match=true otherwise match=false 
 
         if (match) { //if expression matches
+
             input.append(L"$"); //add the $ character at the end of input, in order to begin the topdown parser procedure
             break; //break loop
         }
@@ -53,11 +54,11 @@ int main()
                                                                  //START OF PROCEDURE
     
 
-    wstring stack = L"$S"; //At the begining, stack has only $ and S(starting character) characters
+    wstring stack = L"$S"; //At the beginning, stack has only $ and S(starting character) characters
     wstring stack_top, input_start; //strings to store stack's top and input's first characters
 
     ThreenodeTree* tree = new ThreenodeTree ('S'); //make the first tree node, that has as key the starting character
-    ThreenodeTree* root = tree; //root pointer is beeing used in order to point at the node we are going to expand
+    ThreenodeTree* root = tree; //root pointer is being used in order to point at the node we are going to expand
 
     ThreenodeTree* rightnd = 0;
     ThreenodeTree* middlend = 0;
@@ -66,7 +67,7 @@ int main()
     wcout<<"\n"<<setw(25)<<left<<"Stack:"
     << setw(25)<< left << "Input:"
     << setw(25) << left << "Table element:"
-    << "Production:" << endl; //Print the topdown parser's details (setw is beeing used for text allign)
+    << "Production:" << endl; //Print the topdown parser's details (setw is being used for text allign)
     
     while (true) //a loop that breaks only when the expression has been recognized or not
     {
@@ -165,7 +166,7 @@ int main()
             else //if there is not a rule in that index of syntax table 
             {
                 wcout << "\n\nThere is not any replacement rule on table index: "
-                << "[" << i << "]" << "[" << j << "]" << " so the expression is not beeing recognized;";
+                << "[" << i << "]" << "[" << j << "]" << " so the expression is not being recognized;";
                 break; //stop procedure and exit
             }           
         }
@@ -181,15 +182,15 @@ int main()
             wcout << endl;
             //continue procedure...
         }
-        else if (stack_top != L"$" && input_start == L"$") //else, if stack is not empty but input has finished(the expression is not beeing recognized)
+        else if (stack_top != L"$" && input_start == L"$") //else, if stack is not empty but input has finished(the expression is not being recognized)
         {
 
-            wcout << "\n\nStack is not empty, so the expression is not beeing recognized";
+            wcout << "\n\nStack is not empty, so the expression is not being recognized";
             break; //stop procedure and exit
 
-        }else if(stack_top == L"$" && input_start != L"$") //else, if stack is empty but input has not finished(the expression is not beeing recognized)
+        }else if(stack_top == L"$" && input_start != L"$") //else, if stack is empty but input has not finished(the expression is not being recognized)
         {
-            wcout << "\n\nUnable to recognize all input characters, so the expression is not beeing recognized";
+            wcout << "\n\nUnable to recognize all input characters, so the expression is not being recognized";
             break; //stop procedure and exit
         }
         else //else, stack should be empty and input should be finished(the expression has been recognized)
