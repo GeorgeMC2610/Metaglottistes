@@ -168,6 +168,7 @@ int main()
                 cout << str << endl;
             case 'A':
                 cout << "The <A> --> v  to finalize the prossecion" << endl;
+                str = str.substr(0, i - 1) + str.substr(i + 1, str.length() - 1);
             case 'B':
                 str = str.substr(0, i - 1) + str.substr(i + 1, str.length() - 1);
                 cout << str << endl;
