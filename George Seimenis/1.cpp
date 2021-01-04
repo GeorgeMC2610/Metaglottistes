@@ -8,6 +8,9 @@ using namespace std;
 //need this function to display the stack below.
 void DisplayStack(stack<char> s)
 {
+	if (s.empty())
+		cout << "(empty)";
+
 	//display the stack with the current elements available in one line.
 	while (!s.empty())
 	{
@@ -53,7 +56,6 @@ int main()
 			for (int i = 0; i < input_length; i++)
 			{
 				//save the previous element and the current element to these variables.
-				char stack_last_element = NAS_stack.top();
 				char current_element = input.at(i);
 
 				//if the current character is an 'x', it means that it can be pushed.
@@ -63,24 +65,14 @@ int main()
 					state = "q1";
 				}
 				//otherwise, if it is a 'y', it means that we have to pop one character out from the stack.
-				else
+				else if (!NAS_stack.empty())
 				{
 					NAS_stack.pop();
 
-					//if the stack is now empty, after popping the last element (which is always going to be 'n'), that's an error. Inform the user accoordingly.
-					if (NAS_stack.empty())
-					{
-						error_output = "Cannot pop an element from an empty stack.";
-						state = "q1";
-						accepted_input = false;
-
-						//display what has happened, before breaking out of the loop.
-						string remaining_input = input.substr(i + 1, input_length - 1);
-						cout << (i + 1) << ". Current State: " << state << ", Stack Items: (empty), Remaining Input: " << remaining_input << endl;
-						break;
-					}
-					else if (NAS_stack.top() == 'n')
+					if (!NAS_stack.empty() && NAS_stack.top() == 'n')
 						state = "q2";
+					else
+						state = "q1";
 				}
 
 				//after every loop, we create a substring of the input, representing the remainder of the elements to be tested.
@@ -91,8 +83,18 @@ int main()
 				cout << ", Remaining Input: " << remaining_input << endl;
 			}
 
-			//if the errors are none of the above, we display this error, if the string is rejected, as it is the only possible case left.
-			error_output = (error_output.compare("") == 0) ? "Stack is not empty." : error_output;
+			if (NAS_stack.empty())
+			{
+				error_output = "Stack is empty.";
+				state = "q1";
+				accepted_input = false;
+			}
+			else if (NAS_stack.top() == 'x')
+			{
+				error_output = "Element 'n' is either absent or not the top element.";
+				state = "q1";
+				accepted_input = false;
+			}
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (NAS_stack.size() == 1 && accepted_input)
@@ -117,6 +119,6 @@ int main()
 	} while (true);
 
 	//at this point, there's nothing else to be done. exit with code 0.
-	cout << "Program stopped" << endl;
+	cout << "Program stopped regularly." << endl;
 	return 0;
 }
