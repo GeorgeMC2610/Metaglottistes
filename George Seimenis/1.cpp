@@ -113,7 +113,7 @@ int main()
 		//if the input doesn't match any case above, there must be some mistake. Inform the user accoordingly.
 		else
 		{
-			cout << "Incorrect Input. Only x or y characters are allowed." << endl << endl;
+			cout << "Incorrect Input. Only x or y characters are allowed. If you want to exit, type 'stop'." << endl << endl;
 		}
 
 	} while (true);
