@@ -49,7 +49,7 @@ int main()
 			//push a dummy element into the stack. This will help us make various tests easier. Also, keep track of the accepted input state.
 			NAS_stack.push('n');
 			string error_output = "";
-			string state = "q1";
+			string state = "q2";
 
 			//for every character in the input
 			for (int i = 0; i < input_length; i++)
