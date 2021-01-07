@@ -48,7 +48,6 @@ int main()
 
 			//push a dummy element into the stack. This will help us make various tests easier. Also, keep track of the accepted input state.
 			NAS_stack.push('n');
-			bool accepted_input = true;
 			string error_output = "";
 			string state = "q1";
 
@@ -87,17 +86,15 @@ int main()
 			{
 				error_output = "Stack is empty.";
 				state = "q1";
-				accepted_input = false;
 			}
 			else if (NAS_stack.top() == 'x')
 			{
 				error_output = "Element 'n' is either absent or not the top element.";
 				state = "q1";
-				accepted_input = false;
 			}
 
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
-			if (NAS_stack.size() == 1 && accepted_input)
+			if (state.compare("q2") == 0)
 				cout << endl << "String '" << input << "' is accepted." << endl << endl;
 			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
 			else
