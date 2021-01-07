@@ -1,19 +1,21 @@
 %{ 
     int a=0;
     int count=0;
-    int count1=0;
 %}
 %%
 "good" {++count;}
+<<<<<<< HEAD
 [ABCDEFGH] {++count1;}
+=======
+>>>>>>> 98866bd40d6ce343adefcb571fa6163a524d05d3
 a|A {++a;}
 .
 %%
 main() {
-    printf("SKARNERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n");
+    printf("SKARNERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n apla peiramatizomai akoma");
     yylex();
 
-if (count == 3)
+if (count == 1)
 {
 printf("SKARNER SKARNER \n");
 }
@@ -23,6 +25,5 @@ printf("SKARNER \n");
 }
 
 printf("%d\n",count);
-printf("%d\n",count1);
 printf("%d\n",a);
 }
