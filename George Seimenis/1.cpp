@@ -96,7 +96,7 @@ int main()
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
 			if (state.compare("q2") == 0)
 				cout << endl << "String '" << input << "' is accepted." << endl << endl;
-			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', or if on the way here the accepted_input state was changed, the input is false.
+			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', the input is false.
 			else
 				cout << endl << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl << endl;
 		}
