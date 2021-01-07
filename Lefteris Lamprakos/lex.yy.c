@@ -1512,7 +1512,18 @@ int main()
 #line 9 "Thema5.l"
 
 main() {
+    printf("SKARNERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n");
     yylex();
+
+if (count == 1)
+{
+printf("SKARNER SKARNER \n");
+}
+else
+{
+printf("SKARNER \n");
+}
+
 printf("%d\n",count);
 printf("%d\n",a);
 }
