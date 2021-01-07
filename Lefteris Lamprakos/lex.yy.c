@@ -286,7 +286,7 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 #define YY_END_OF_BUFFER 6
 static yyconst short int yy_accept[14] =
     {   0,
-        0,    0,    6,    4,    5,    2,    3,    2,    4,    0,
+        0,    0,    6,    4,    5,    2,    2,    3,    4,    0,
         0,    1,    0
     } ;
 
@@ -298,8 +298,8 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    4,    4,    4,    4,    4,
-        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    3,    1,    4,    3,    3,    3,    3,    3,
+        3,    3,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    5,    1,    1,    6,
 
@@ -614,12 +614,12 @@ YY_RULE_SETUP
 case 2:
 YY_RULE_SETUP
 #line 8 "Thema5.l"
-{++a;}
+{++count1;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 9 "Thema5.l"
-{++count1;}
+{++a;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP

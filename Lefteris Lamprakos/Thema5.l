@@ -5,8 +5,8 @@
 %}
 %%
 "good" {++count;}
-a|A {++a;}
 [ABCDEFGH] {++count1;}
+a|A {++a;}
 .
 %%
 main() {
