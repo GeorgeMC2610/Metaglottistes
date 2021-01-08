@@ -62,14 +62,14 @@ string theBita(string str)
             {
                 s1 = str.substr(0, i);
                 s2 = str.substr(i + 1, str.length() - 1);
-                str = s1 + "+" + "Y" + s2;
+                str = s1 +"<"+ "+" + "Y" + ">"+s2;
             }
         case 1:
             if (str[i] == 'B')
             {
                 s1 = str.substr(0, i);
                 s2 = str.substr(i + 1, str.length() - 1);
-                str = s1 + "-" + "Y" + s2;
+                str = s1 +"<"+ "-" + "Y" +">"+ s2;
             }
         case 2:
             if (str[i] == 'B')
@@ -94,6 +94,7 @@ string theYpsilon(string str)
             s1 = str.substr(0, i);
             s2 = str.substr(i + 1, str.length() - 1);
             str = s1 + "A" + "B" + s2;
+            cout << str << endl;
         }
     }
     return str;
@@ -127,7 +128,7 @@ int main()
         counter++;
         if (checkCapitals(str) == 1)
         {
-            for (int y = 0; y < str.length(); y++)
+            for (int y = 0; y < str.length()-1; y++)
             {
                 switch (str[i])
                 {
@@ -151,7 +152,7 @@ int main()
             }
         }
     }
-    if (counter == 20 && checkCapitals(str) == 1)
+   /* if (counter == 20 && checkCapitals(str) == 1)
     {
         for (int i = 0; i < str.length(); i++)
         {
@@ -180,7 +181,9 @@ int main()
 
 
         }
+
     }
+     */
     cout << str;
 
 }
