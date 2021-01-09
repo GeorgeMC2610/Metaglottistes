@@ -10,7 +10,6 @@ using namespace std;
  int main() {
   string str = "<A><B>";
   string s1,s2;
- // int counter =0;
    int i=0;
   srand(time(NULL));
   int v1 = (rand() % 3);
@@ -24,7 +23,7 @@ using namespace std;
    {
      s1 = str.substr(0,i);
      s2 = str.substr(i+1,str.length());
-    str = s1 + "<" + "(" + "Y" + ")" + ">" + s2;
+     str = s1 + "<(Y)>" + s2;
     continue;
    }
    if (str[i]=='A' && v2 ==0)
@@ -41,9 +40,9 @@ using namespace std;
    }
      if (str[i]=='B' && v1 == 0 )
    {
-     s1 = str.substr(0,i);
-      s2 = str.substr(i+1,str.length());
-     str = s1 +"+" +"<" + "Y" +">"+ s2;
+       s1 = str.substr(0,i);
+       s2 = str.substr(i+1,str.length());
+       str = s1 +"+<Y>"+ s2;
       continue;
      
    }
@@ -51,7 +50,7 @@ using namespace std;
    {
       s1 = str.substr(0,i);
       s2 = str.substr(i+1 , str.length());
-     str = s1 + "-" +"<"+ "Y" +">"+ s2 ;
+     str = s1 + "-<Y>"+ s2 ;
       continue;
      
    }
@@ -72,14 +71,6 @@ using namespace std;
      
    }
  }
- 
-  
-   
-
-
- 
- 
- 
 cout << str ;
   return 0;
 }
