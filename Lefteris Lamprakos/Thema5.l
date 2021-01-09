@@ -1,29 +1,31 @@
 %{ 
-    int a=0;
     int count=0;
+    int count1=0;
 %}
 %%
 "good" {++count;}
-<<<<<<< HEAD
-[ABCDEFGH] {++count1;}
-=======
->>>>>>> 98866bd40d6ce343adefcb571fa6163a524d05d3
-a|A {++a;}
+(A?)(B?)(C?)(D?)(E?)(F?)(G?)(H?) {++count1;}
 .
 %%
-main() {
-    printf("SKARNERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n apla peiramatizomai akoma");
+int main() {
+    printf("Auto einai ena programma pou tha dextei otidhpote shmeio,eutheia kai sxhma mou dwseis,xrhsimopoiontas ta shmeia A,B,C,D,E,F,G,H. Mporeis na mhn ta xrhsimopoihseis ola an thes.\n");
+    printf("Tha dextw omws gia paradeigma mono ton oro <Trigwno ABC>/<Triangle ABC> h <Tetragwno ACHG>/<Square ACHG> alla oxi ton oro <Tetragwno ABC>/<Square ABC>\n");
+    printf("Kathws ta shmeia einai 8 tha dextw maximum mexri Oktagwno/Octagon kai mporeis na xrhsimopoihseis to kathe shmeio mono MIA fora!\n\n");
     yylex();
 
 if (count == 1)
 {
-printf("SKARNER SKARNER \n");
+    printf("SKARNER SKARNER \n");
 }
-else
+else 
 {
-printf("SKARNER \n");
+    if (yytext == "ABC good")
+    {
+        printf("SKARNER \n");
+    }
 }
 
 printf("%d\n",count);
-printf("%d\n",a);
+printf("%d\n",count1);
+printf("%s\n",yytext);
 }
