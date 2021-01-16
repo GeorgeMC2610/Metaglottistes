@@ -51,14 +51,9 @@ public:
 	void ReplaceCharacters()
 	{
 		srand(time(NULL));
-		//<E>:: = (<Y>)
-		//<Y>:: = <A><B> *
-		//<A>:: = v | <E>
-		//<B>:: = -<Y> | +<Y> | e
 		int random;
 		int i = 0;
-		while (i < this->Expression.length())
-		{
+		while (i < 20) {
 			switch (this->Expression[i])
 			{
 			case 'E':
@@ -66,7 +61,7 @@ public:
 				break;
 			case 'Y':
 				this->Expression[i] = 'A';
-				this->Expression.insert(i+1, "B");
+				this->Expression.insert(i + 1, "B");
 				i--;
 				break;
 			case 'A':
@@ -96,25 +91,17 @@ public:
 
 			i++;
 		}
+
 	}
 };
 
 int main()
 {
-	Symbol testSymbol("", false);
-	testSymbol.Expression = Symbol::GenerateExpression();
+	Symbol testSymbol("E", false);
+	//testSymbol.Expression = Symbol::GenerateExpression();
 	cout << testSymbol.Expression << endl;
-
 	testSymbol.ReplaceCharacters();
 	cout << testSymbol.Expression << endl;
-	
 
-	//string s1 = "ABCDEF";
-	//s1.insert(3, "09");
-	//cout << s1 << endl;
 
-	//s1.erase(2, 1);
-	//cout << s1;
-
-	//return 0;
 }
