@@ -55,12 +55,12 @@ public:
 		for (int i = 0; i < s.length(); i++)
 		{
 			s2 = s[i];
-			if (!regex_match(s2, regex("[+-ne]")))
+			if (!regex_match(s2, regex("[+ne-]")))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 
 	}
 
@@ -118,7 +118,7 @@ public:
 				break;
 			}
 
-			//i++;
+			
 			cout << Expression << endl;
 
 
