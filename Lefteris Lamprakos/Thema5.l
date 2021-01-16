@@ -1,10 +1,10 @@
 %{ 
-    int count=0;
     int count1=0;
+    int count=0;
 %}
 %%
-"good" {++count;}
-(A?)(B?)(C?)(D?)(E?)(F?)(G?)(H?) {++count1;}
+[A]{2,}|[B]{2,}|[C]{2,}|[D]{2,}|[E]{2,}|[F]{2,}|[G]{2,}|[H]{2,} {printf("LATHOS");}
+[ABCDEFGH] {++count1;}
 .
 %%
 int main() {
@@ -13,7 +13,7 @@ int main() {
     printf("Kathws ta shmeia einai 8 tha dextw maximum mexri Oktagwno/Octagon kai mporeis na xrhsimopoihseis to kathe shmeio mono MIA fora!\n\n");
     yylex();
 
-if (count == 1)
+/*if (count1 == 1)
 {
     printf("SKARNER SKARNER \n");
 }
@@ -23,7 +23,7 @@ else
     {
         printf("SKARNER \n");
     }
-}
+} */
 
 printf("%d\n",count);
 printf("%d\n",count1);
