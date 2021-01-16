@@ -142,9 +142,6 @@ int main()
 {
 	srand(time(NULL));
 	Symbol testSymbol("<E>", false);
-	string s = "abcfdbfhtrhrthbrdev";
-	s.erase(2, 1);
-	cout << s << endl;
 
 	cout << testSymbol.Expression << endl;
 
