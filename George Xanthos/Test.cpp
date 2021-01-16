@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <regex>
 
 using namespace std;
 
@@ -47,61 +48,97 @@ public:
 
 		return str;
 	}
+	bool Checker(string s)
+	{
+		//return regex_match(s,regex("[+-ne]+"));
+		string s2 = "";
+		for (int i = 0; i < s.length(); i++)
+		{
+			s2 = s[i];
+			if (!regex_match(s2, regex("[+-ne]")))
+			{
+				return false;
+			}
+		}
+		return true;
+
+	}
 
 	void ReplaceCharacters()
 	{
-		srand(time(NULL));
+		//srand(time(NULL));
 		int random;
-		int i = 0;
-		while (i < 20) {
-			switch (this->Expression[i])
+		//int i = 0;
+		int j = 0;
+		for (int i = 0; i < 20; i++) {
+			j = 0;
+			if (!Checker(Expression))
+			{
+				break;
+			}
+			while (Expression[j] == 'n' || Expression[j] == '-' || Expression[j] == '+' || Expression[j] == 'e')
+			{
+				j++;
+			}
+			switch (this->Expression[j])
 			{
 			case 'E':
-				this->Expression[i] = 'Y';
+				this->Expression[j] = 'Y';
 				break;
 			case 'Y':
-				this->Expression[i] = 'A';
-				this->Expression.insert(i + 1, "B");
-				i--;
+				this->Expression[j] = 'A';
+				this->Expression.insert(j + 1, "B");
+				j++;
+				//i--;
 				break;
 			case 'A':
 				random = (rand() % 2);
 
-				this->Expression[i] = (random == 0) ? 'n' : 'E';
+				this->Expression[j] = (random == 0) ? 'n' : 'E';
 				break;
 			case 'B':
 				random = (rand() % 3);
 
 				if (random == 0)
 				{
-					this->Expression[i] = '+';
-					this->Expression.insert(i + 1, "Y");
+					this->Expression[j] = '+';
+					this->Expression.insert(j + 1, "Y");
+					j++;
 				}
 				else if (random == 1)
 				{
-					this->Expression[i] = '-';
-					this->Expression.insert(i + 1, "Y");
+					this->Expression[j] = '-';
+					this->Expression.insert(j + 1, "Y");
+					j++;
 				}
 				else
-					this->Expression[i] = 'e';
+					this->Expression[j] = 'e';
 
-				i--;
+				//i--;
 				break;
 			}
 
-			i++;
-		}
+			//i++;
+			cout << Expression << endl;
 
+
+
+		}
 	}
 };
 
 int main()
 {
+	srand(time(NULL));
 	Symbol testSymbol("E", false);
-	//testSymbol.Expression = Symbol::GenerateExpression();
+
 	cout << testSymbol.Expression << endl;
+
 	testSymbol.ReplaceCharacters();
+
 	cout << testSymbol.Expression << endl;
+
+
 
 
 }
