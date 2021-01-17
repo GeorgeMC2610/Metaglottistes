@@ -7,145 +7,119 @@ using namespace std;
 class Symbol
 {
 public:
-	bool Final;
+	
 	string Expression;
 
-	Symbol(string Expression, bool Final)
+	Symbol(string Expression)
 	{
-		this->Final = Final;
-		this->Expression = Expression;
+		
+		Expression = Expression;
 	}
 
-	/*	static string GenerateExpression()
-		{
-			string str = "";
-			//srand(time(NULL));
-
-			//to megethos tou string
-			int stringLength = 4 + (rand() % 4);
-
-			for (int i = 0; i < stringLength; i++)
-			{
-				int random = (rand() % 4);
-
-				switch (random)
-				{
-				case 0:
-					str += "E";
-					break;
-				case 1:
-					str += "Y";
-					break;
-				case 2:
-					str += "A";
-					break;
-				case 3:
-					str += "B";
-					break;
-				}
-			}
-
-			return str;
-		}*/
+	
 	bool Checker(string s)
 	{
-		//return regex_match(s,regex("[+-ne]+"));
-		//string s2 = "";
+		/*THe checker function scans from the left to the right to find the most left symbol.*/
 		for (int i = 0; i < s.length(); i++)
 		{
-			//s2 = s[i];
+			
 			if (s[i] == '<')
 			{
-				return true; //true ama vrei ena mh termatiko
+				return true; //return true true if it finds it
 			}
 		}
-		return false; //false ama einai ola termatika
+		return false; //and false otherwise
 
 	}
 
 	void ReplaceCharacters()
-	{
-		//srand(time(NULL));
+	{ /*This function replace the most left symbol in our string with an other final or 
+	  non-final according to the grammatical rules we were given if checker function 
+	  has returned true*/
 		int random;
-		//int i = 0;
-		int j = 0;
+		int j;
 		for (int i = 0; i < 50; i++) {
 			j = 0;
 			if (!Checker(Expression))
 			{
-				break;
+				break; 
+				/*
+				* if the checker returns false it means we have a final symbol 
+				* as the most left position so we transfer to the next most left position
+				* with a non-final symbol
+				*/
 			}
 			while (Expression[j] != '<')
 			{
 				j++;
 			}
-			switch (this->Expression[j + 1])
+			switch (Expression[j + 1])
 			{
 			case 'E':
-				this->Expression[j] = '(';
-				this->Expression[j + 1] = '<';
-				this->Expression[j + 2] = 'Y';
-				this->Expression.insert(j + 3, ">)");
+				Expression[j] = '(';
+				Expression[j + 1] = '<';
+				Expression[j + 2] = 'Y';
+				Expression.insert(j + 3, ">)");
 				break;
 			case 'Y':
-				this->Expression[j + 1] = 'A';
-				this->Expression.insert(j + 3, "<B>");
+				Expression[j + 1] = 'A';
+				Expression.insert(j + 3, "<B>");
 				j++;
-				//i--;
 				break;
 			case 'A':
 				random = (rand() % 2);
-
-				//this->Expression[j] = (random == 0) ? 'n' : 'E';
-
 				if (random == 0) {
-					this->Expression[j] = 'n';
-					this->Expression.erase(j + 1, 2);
+					Expression[j] = 'n';
+					Expression.erase(j + 1, 2);
 				}
 				else {
-					this->Expression[j + 1] = 'E';
+					Expression[j + 1] = 'E';
 				}
 				break;
 			case 'B':
 				random = (rand() % 3);
-
 				if (random == 0)
 				{
-					this->Expression[j] = '+';
-					this->Expression[j + 1] = '<';
-					this->Expression[j + 2] = 'Y';
-					this->Expression.insert(j + 3, ">");
+					Expression[j] = '+';
+					Expression[j + 1] = '<';
+					Expression[j + 2] = 'Y';
+					Expression.insert(j + 3, ">");
 					j++;
 				}
 				else if (random == 1)
 				{
-					this->Expression[j] = '-';
-					this->Expression[j + 1] = '<';
-					this->Expression[j + 2] = 'Y';
-					this->Expression.insert(j + 3, ">");
+					Expression[j] = '-';
+					Expression[j + 1] = '<';
+					Expression[j + 2] = 'Y';
+					Expression.insert(j + 3, ">");
 					j++;
 				}
+				/*
+				* According to the grammaticals rules  we have  <A> --> v|<E>
+				* and <B> --> -<Y>|+<Y> | empty space 
+				* so  in this case we should one symbol be chance ,
+				* in this case we use the rand() function in order to choose a symbol
+				* for the <A> and <B>
+ 				* 
+				*/
 				else {
-					this->Expression.erase(j, 3);
+					Expression.erase(j, 3);
 				}
-
-				//i--;
 				break;
 			}
-			//i++;
-			cout << Expression << endl;
+			cout << Expression << endl;		
+			/*
+			we give 50 steps for the replace to make a string that contains only non-final symbols if this is don't happen
+			 it will leave the nono-final symbols as they are
+			*/
 		}
 	}
 };
 
 int main()
 {
-	srand(time(NULL));
-	Symbol testSymbol("<E>", false);
-
-	cout << testSymbol.Expression << endl;
-
-	testSymbol.ReplaceCharacters();
-
-	//cout << testSymbol.Expression << endl;
+	srand(time(NULL)); // Giving a the time of the cpu as a ceed to our rand () function
+	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
+	//cout << testSymbol.Expression << endl; 
+	testSymbol.ReplaceCharacters(); 
 }
