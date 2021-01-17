@@ -19,7 +19,7 @@ public:
 
 	bool Checker(string s)
 	{
-		/*THe checker function scans from the left to the right to find the most left noo-final symbol.*/
+		/*THe checker function scans from the left to the right to find the most left non-final symbol.*/
 		for (int i = 0; i < s.length(); i++)
 		{
 
