@@ -282,13 +282,12 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 4
-#define YY_END_OF_BUFFER 5
-static yyconst short int yy_accept[31] =
+#define YY_NUM_RULES 10
+#define YY_END_OF_BUFFER 11
+static yyconst short int yy_accept[15] =
     {   0,
-        0,    0,    5,    3,    4,    2,    2,    2,    2,    2,
-        2,    2,    2,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    0
+        0,    0,   11,    9,   10,    1,    2,    3,    4,    5,
+        6,    7,    8,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -328,36 +327,30 @@ static yyconst int yy_meta[11] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[31] =
+static yyconst short int yy_base[15] =
     {   0,
-        0,    0,   35,   36,   36,   31,   29,   27,   25,   23,
-       21,   19,   17,   23,   21,   19,   17,   15,   13,   11,
-        9,   15,   13,   11,    9,    7,    5,    3,    1,   36
+        0,    0,   11,   12,   12,   12,   12,   12,   12,   12,
+       12,   12,   12,   12
     } ;
 
-static yyconst short int yy_def[31] =
+static yyconst short int yy_def[15] =
     {   0,
-       30,    1,   30,   30,   30,   30,   30,   30,   30,   30,
-       30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
-       30,   30,   30,   30,   30,   30,   30,   30,   30,    0
+       14,    1,   14,   14,   14,   14,   14,   14,   14,   14,
+       14,   14,   14,    0
     } ;
 
-static yyconst short int yy_nxt[47] =
+static yyconst short int yy_nxt[23] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       29,   28,   27,   26,   25,   24,   23,   22,   29,   28,
-       27,   26,   25,   24,   23,   22,   21,   20,   19,   18,
-       17,   16,   15,   14,   30,    3,   30,   30,   30,   30,
-       30,   30,   30,   30,   30,   30
+       14,    3,   14,   14,   14,   14,   14,   14,   14,   14,
+       14,   14
     } ;
 
-static yyconst short int yy_chk[47] =
+static yyconst short int yy_chk[23] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-       29,   28,   27,   26,   25,   24,   23,   22,   21,   20,
-       19,   18,   17,   16,   15,   14,   13,   12,   11,   10,
-        9,    8,    7,    6,    3,   30,   30,   30,   30,   30,
-       30,   30,   30,   30,   30,   30
+        3,   14,   14,   14,   14,   14,   14,   14,   14,   14,
+       14,   14
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -374,9 +367,17 @@ char *yytext;
 #line 1 "Thema5.l"
 #define INITIAL 0
 #line 2 "Thema5.l"
-    int count1=0;
+    int countA=0;
+    int countB=0;
+    int countC=0;
+    int countD=0;
+    int countE=0;
+    int countF=0;
+    int countG=0;
+    int countH=0;
     int count=0;
-#line 380 "lex.yy.c"
+    char* Input=""; 
+#line 381 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -527,9 +528,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 5 "Thema5.l"
+#line 13 "Thema5.l"
 
-#line 533 "lex.yy.c"
+#line 534 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -580,13 +581,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 31 )
+				if ( yy_current_state >= 15 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 36 );
+		while ( yy_base[yy_current_state] != 12 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -614,25 +615,55 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 6 "Thema5.l"
-{printf("LATHOS");}
+#line 14 "Thema5.l"
+{++countA;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 7 "Thema5.l"
-{++count1;}
+#line 15 "Thema5.l"
+{++countB;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "Thema5.l"
-
+#line 16 "Thema5.l"
+{++countC;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 9 "Thema5.l"
+#line 17 "Thema5.l"
+{++countD;}
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 18 "Thema5.l"
+{++countE;}
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 19 "Thema5.l"
+{++countF;}
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 20 "Thema5.l"
+{++countG;}
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 21 "Thema5.l"
+{++countH;}
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 22 "Thema5.l"
+
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 23 "Thema5.l"
 ECHO;
 	YY_BREAK
-#line 636 "lex.yy.c"
+#line 667 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -924,7 +955,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 31 )
+			if ( yy_current_state >= 15 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -959,11 +990,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 31 )
+		if ( yy_current_state >= 15 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 30);
+	yy_is_jam = (yy_current_state == 14);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1518,27 +1549,78 @@ int main()
 	return 0;
 	}
 #endif
-#line 9 "Thema5.l"
+#line 23 "Thema5.l"
 
 int main() {
-    printf("Auto einai ena programma pou tha dextei otidhpote shmeio,eutheia kai sxhma mou dwseis,xrhsimopoiontas ta shmeia A,B,C,D,E,F,G,H. Mporeis na mhn ta xrhsimopoihseis ola an thes.\n");
-    printf("Tha dextw omws gia paradeigma mono ton oro <Trigwno ABC>/<Triangle ABC> h <Tetragwno ACHG>/<Square ACHG> alla oxi ton oro <Tetragwno ABC>/<Square ABC>\n");
-    printf("Kathws ta shmeia einai 8 tha dextw maximum mexri Oktagwno/Octagon kai mporeis na xrhsimopoihseis to kathe shmeio mono MIA fora!\n\n");
+    printf("This program will accept ANY Point,Line or Shape given,as long as is written using the following letters: A,B,C,D,E,F,G,H. You dont have to use all of them necessary.\n");
+    printf("Some acceptable examples are <triangle ABC>/<square ACHG>/<line HE> and some unacceptable examples are <square ABC>/<octagon EDCBA>\n");
+    printf("Consider the given letters are 8 and can be used only ONE TIME,the acceptable references are: point, line, triangle, square, pentagon, hexagon, heptagon, octagon + the numbers of the letters to the right side.\n\n");
     yylex();
+    {Input = yytext;}
+    printf("%s\n",Input);
 
-/*if (count1 == 1)
+count = countA + countB + countC + countD + countE + countF + countG + countH;
+
+if (countA > 1||countB > 1||countC > 1||countD > 1||countE > 1||countF > 1||countG > 1||countH > 1)
 {
-    printf("SKARNER SKARNER \n");
+    printf("unacceptable reference,try again\n");
 }
 else 
 {
-    if (yytext == "ABC good")
+    if (count == 1 && Input == "point")
     {
-        printf("SKARNER \n");
+        printf(Input);
     }
-} */
+    else
+    {
+        if (count == 2 && Input == "line")
+        {
+            printf(Input);
+        }
+        else
+        {
+            if (count == 3 && Input == "triangle")
+            {
+                printf(Input);
+            }
+            else
+            {
+                if (count == 4 && Input == "square")
+                {
+                    printf(Input);
+                }
+                else
+                {
+                    if (count == 5 && Input == "pentagon")
+                    {
+                        printf(Input);
+                    }
+                    else
+                    {
+                        if (count == 6 && Input == "hexagon")
+                        {
+                            printf(Input);
+                        }
+                        else
+                        {
+                            if (count == 7 && Input == "heptagon")
+                            {
+                                printf(Input);
+                            }
+                            else
+                            {
+                                if (count == 8 && Input == "octagon")
+                                {
+                                    printf(Input);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+} 
 
 printf("%d\n",count);
-printf("%d\n",count1);
-printf("%s\n",yytext);
 }

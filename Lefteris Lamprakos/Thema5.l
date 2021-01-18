@@ -1,31 +1,96 @@
 %{ 
-    int count1=0;
+    int countA=0;
+    int countB=0;
+    int countC=0;
+    int countD=0;
+    int countE=0;
+    int countF=0;
+    int countG=0;
+    int countH=0;
     int count=0;
+    char* Input=""; 
 %}
 %%
-[A]{2,}|[B]{2,}|[C]{2,}|[D]{2,}|[E]{2,}|[F]{2,}|[G]{2,}|[H]{2,} {printf("LATHOS");}
-[ABCDEFGH] {++count1;}
+[A] {++countA;}
+[B] {++countB;}
+[C] {++countC;}
+[D] {++countD;}
+[E] {++countE;}
+[F] {++countF;}
+[G] {++countG;}
+[H] {++countH;}
 .
 %%
 int main() {
-    printf("Auto einai ena programma pou tha dextei otidhpote shmeio,eutheia kai sxhma mou dwseis,xrhsimopoiontas ta shmeia A,B,C,D,E,F,G,H. Mporeis na mhn ta xrhsimopoihseis ola an thes.\n");
-    printf("Tha dextw omws gia paradeigma mono ton oro <Trigwno ABC>/<Triangle ABC> h <Tetragwno ACHG>/<Square ACHG> alla oxi ton oro <Tetragwno ABC>/<Square ABC>\n");
-    printf("Kathws ta shmeia einai 8 tha dextw maximum mexri Oktagwno/Octagon kai mporeis na xrhsimopoihseis to kathe shmeio mono MIA fora!\n\n");
+    printf("This program will accept ANY Point,Line or Shape given,as long as is written using the following letters: A,B,C,D,E,F,G,H. You dont have to use all of them necessary.\n");
+    printf("Some acceptable examples are <triangle ABC>/<square ACHG>/<line HE> and some unacceptable examples are <square ABC>/<octagon EDCBA>\n");
+    printf("Consider the given letters are 8 and can be used only ONE TIME,the acceptable references are: point, line, triangle, square, pentagon, hexagon, heptagon, octagon + the numbers of the letters to the right side.\n\n");
     yylex();
+    {Input = yytext;}
+    printf("%s\n",Input);
 
-/*if (count1 == 1)
+count = countA + countB + countC + countD + countE + countF + countG + countH;
+
+if (countA > 1||countB > 1||countC > 1||countD > 1||countE > 1||countF > 1||countG > 1||countH > 1)
 {
-    printf("SKARNER SKARNER \n");
+    printf("unacceptable reference,try again\n");
 }
 else 
 {
-    if (yytext == "ABC good")
+    if (count == 1 && Input == "point")
     {
-        printf("SKARNER \n");
+        printf(Input);
     }
-} */
+    else
+    {
+        if (count == 2 && Input == "line")
+        {
+            printf(Input);
+        }
+        else
+        {
+            if (count == 3 && Input == "triangle")
+            {
+                printf(Input);
+            }
+            else
+            {
+                if (count == 4 && Input == "square")
+                {
+                    printf(Input);
+                }
+                else
+                {
+                    if (count == 5 && Input == "pentagon")
+                    {
+                        printf(Input);
+                    }
+                    else
+                    {
+                        if (count == 6 && Input == "hexagon")
+                        {
+                            printf(Input);
+                        }
+                        else
+                        {
+                            if (count == 7 && Input == "heptagon")
+                            {
+                                printf(Input);
+                            }
+                            else
+                            {
+                                if (count == 8 && Input == "octagon")
+                                {
+                                    printf(Input);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+} 
 
 printf("%d\n",count);
-printf("%d\n",count1);
-printf("%s\n",yytext);
 }
