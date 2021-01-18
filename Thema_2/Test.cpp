@@ -99,7 +99,7 @@ public:
 					j++;
 				}
 				/*
-				* According to the grammaticalls rules  we have  <A> --> v|<E>
+				* According to the grammatical rules  we have  <A> --> v|<E>
 				* and <B> --> -<Y>|+<Y> | empty space
 				* so  in this case we should choose one symbol be chance ,
 				* in this case we use the rand() function in order to choose a symbol
@@ -126,4 +126,6 @@ int main()
 	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
 	cout << testSymbol.Expression << endl;
 	testSymbol.ReplaceCharacters();
+	system("pause");
+	return 0;
 }
