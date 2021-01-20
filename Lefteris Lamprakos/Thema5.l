@@ -18,17 +18,18 @@
 [E] {++countE; Input = yytext;}
 [F] {++countF; Input = yytext;}
 [G] {++countG; Input = yytext;}
-[H] {++countH; Input = yytext;}
+[H] {++countH; Input = yytext;}                                /* printf("%s\n",yytext); */
 . {Input = yytext;}
 %%
 int main() {
     printf("This program will accept ANY Point,Line or Shape given,as long as is written using the following letters: A,B,C,D,E,F,G,H. You dont have to use all of them necessary.\n");
     printf("Some acceptable examples are <triangle ABC>/<square ACHG>/<line HE> and some unacceptable examples are <square ABC>/<octagon EDCBA>\n");
     printf("Consider the given letters are 8 and can be used only ONE TIME,the acceptable references are: point, line, triangle, square, pentagon, hexagon, heptagon, octagon + the numbers of the letters to the right side.\n\n");
-    yylex();
-    {Input = yytext;}
+    Input = yytext;
     printf("%s\n",Input);
-    {printf("The following expression is",yytext);}
+    printf("TO YYTEXT PREPEI NA EMFANISTEI EDW",yytext);
+    yylex();
+    
 
 count = countA + countB + countC + countD + countE + countF + countG + countH;
 
