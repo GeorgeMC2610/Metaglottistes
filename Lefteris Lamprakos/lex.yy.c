@@ -376,7 +376,7 @@ char *yytext;
     int countG=0;
     int countH=0;
     int count=0;
-    char* Input=""; 
+    const char* Input=""; 
 #line 381 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
@@ -616,47 +616,47 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 14 "Thema5.l"
-{++countA;}
+{++countA; Input = yytext;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 15 "Thema5.l"
-{++countB;}
+{++countB; Input = yytext;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 16 "Thema5.l"
-{++countC;}
+{++countC; Input = yytext;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 17 "Thema5.l"
-{++countD;}
+{++countD; Input = yytext;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 18 "Thema5.l"
-{++countE;}
+{++countE; Input = yytext;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 19 "Thema5.l"
-{++countF;}
+{++countF; Input = yytext;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 20 "Thema5.l"
-{++countG;}
+{++countG; Input = yytext;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 21 "Thema5.l"
-{++countH;}
+{++countH; Input = yytext;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 22 "Thema5.l"
-
+{Input = yytext;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
@@ -1558,6 +1558,7 @@ int main() {
     yylex();
     {Input = yytext;}
     printf("%s\n",Input);
+    {printf("EMFANISE TO YYETXT H AKOMA?:"\n,yytext);}
 
 count = countA + countB + countC + countD + countE + countF + countG + countH;
 

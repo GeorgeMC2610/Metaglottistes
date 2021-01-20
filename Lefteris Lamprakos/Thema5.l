@@ -8,18 +8,18 @@
     int countG=0;
     int countH=0;
     int count=0;
-    char* Input=""; 
+    const char* Input=""; 
 %}
 %%
-[A] {++countA;}
-[B] {++countB;}
-[C] {++countC;}
-[D] {++countD;}
-[E] {++countE;}
-[F] {++countF;}
-[G] {++countG;}
-[H] {++countH;}
-.
+[A] {++countA; Input = yytext;}
+[B] {++countB; Input = yytext;}
+[C] {++countC; Input = yytext;}
+[D] {++countD; Input = yytext;}
+[E] {++countE; Input = yytext;}
+[F] {++countF; Input = yytext;}
+[G] {++countG; Input = yytext;}
+[H] {++countH; Input = yytext;}
+. {Input = yytext;}
 %%
 int main() {
     printf("This program will accept ANY Point,Line or Shape given,as long as is written using the following letters: A,B,C,D,E,F,G,H. You dont have to use all of them necessary.\n");
@@ -28,6 +28,7 @@ int main() {
     yylex();
     {Input = yytext;}
     printf("%s\n",Input);
+    {printf("The following expression is",yytext);}
 
 count = countA + countB + countC + countD + countE + countF + countG + countH;
 
