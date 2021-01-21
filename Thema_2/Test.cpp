@@ -40,15 +40,16 @@ public:
 		int j;
 		for (int i = 0; i < 50; i++) {
 			j = 0;
-			if (!Checker(Expression))
-			{
-				break;
+			//if (!Checker(Expression))
+			//{
+				//break;
 				/*
 				* if the checker returns false it means we have a final symbol
 				* as the most left position so we transfer to the next most left position
 				* with a non-final symbol
 				*/
-			}
+			//}
+		
 			while (Expression[j] != '<')
 			{
 				j++;
@@ -122,10 +123,13 @@ public:
 
 int main()
 {
-	srand(time(NULL)); // Giving a the time of the cpu as a ceed to our rand () function
+	srand(time(NULL)); // Giving  the time of the cpu as a seed to our rand () function
 	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
 	cout << testSymbol.Expression << endl;
 	testSymbol.ReplaceCharacters();
 	system("pause");
 	return 0;
+
 }
+
+
