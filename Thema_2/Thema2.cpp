@@ -49,7 +49,7 @@ public:
 				* with a non-final symbol
 				*/
 			//}
-		
+
 			while (Expression[j] != '<')
 			{
 				j++;
@@ -58,6 +58,7 @@ public:
 			{
 			case 'E':
 				cout << "According to the grammatical rule :  <E> ::= (<Y>) " << endl;
+				cout << "The <E> is replaced by (<Y>)" << endl;
 				Expression[j] = '(';
 				Expression[j + 1] = '<';
 				Expression[j + 2] = 'Y';
@@ -65,6 +66,7 @@ public:
 				break;
 			case 'Y':
 				cout << "According to the grammatical rule :  <Y> ::= <A><B> " << endl;
+				cout << "The <Y> is replaced by <A><B>" << endl;
 				Expression[j + 1] = 'A';
 				Expression.insert(j + 3, "<B>");
 				j++;
@@ -73,11 +75,13 @@ public:
 				cout << "According to the grammatical rule :  <A> ::= v | <E> " << endl;
 				random = (rand() % 2);
 				if (random == 0) {
-					Expression[j] = 'n';
+					Expression[j] = 'v';
 					Expression.erase(j + 1, 2);
+					cout << "The <A> is replaced by v" << endl;
 				}
 				else {
 					Expression[j + 1] = 'E';
+					cout << "THE <A> is replaced by <E>" << endl;
 				}
 				break;
 			case 'B':
@@ -90,6 +94,7 @@ public:
 					Expression[j + 2] = 'Y';
 					Expression.insert(j + 3, ">");
 					j++;
+					cout << "The <B> is replaced by  +<Y>  " << endl;
 				}
 				else if (random == 1)
 				{
@@ -98,6 +103,8 @@ public:
 					Expression[j + 2] = 'Y';
 					Expression.insert(j + 3, ">");
 					j++;
+					cout << "The <B> is replaced by  -<Y>  " << endl;
+
 				}
 				/*
 				* According to the grammatical rules  we have  <A> --> v|<E>
@@ -109,10 +116,12 @@ public:
 				*/
 				else {
 					Expression.erase(j, 3);
+					cout << "The <B> is replaced  by empty space " << endl;
 				}
 				break;
 			}
 			cout << Expression << endl;
+			cout << endl;
 			/*
 			we give 50 steps for the replace to make a string that contains only non-final symbols if this is don't happen
 			 it will leave the nono-final symbols as they are
@@ -131,5 +140,3 @@ int main()
 	return 0;
 
 }
-
-

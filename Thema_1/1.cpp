@@ -37,7 +37,7 @@ int main()
 		cin >> input;
 
 		//convert the input to lowercase.
-		transform(input.begin(), input.end(), input.begin(), [](unsigned char c) { return tolower(c); });
+	//	transform(input.begin(), input.end(), input.begin(), [](unsigned char c) { return tolower(c); });
 
 		//if the message matches the wanted input (which has to be only x and y chars), we proceed to do what the exercise defines.
 		if (regex_match(input, regex("[xy]+")))
