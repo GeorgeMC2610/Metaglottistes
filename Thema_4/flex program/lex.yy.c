@@ -284,13 +284,13 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 
 #define YY_NUM_RULES 8
 #define YY_END_OF_BUFFER 9
-static yyconst short int yy_accept[50] =
+static yyconst short int yy_accept[49] =
     {   0,
-        0,    0,    9,    7,    6,    6,    7,    7,    6,    6,
-        0,    0,    5,    0,    0,    0,    0,    0,    5,    5,
-        5,    5,    0,    0,    0,    3,    3,    3,    5,    5,
-        3,    5,    3,    3,    5,    3,    5,    4,    4,    5,
-        4,    4,    4,    2,    4,    4,    1,    4,    0
+        0,    0,    9,    7,    6,    8,    7,    7,    6,    0,
+        0,    5,    0,    0,    0,    0,    0,    5,    5,    5,
+        5,    0,    0,    0,    3,    3,    3,    5,    5,    3,
+        5,    3,    3,    5,    3,    5,    4,    4,    5,    4,
+        4,    4,    2,    4,    4,    1,    4,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -327,63 +327,63 @@ static yyconst int yy_ec[256] =
 
 static yyconst int yy_meta[10] =
     {   0,
-        1,    2,    2,    1,    1,    1,    1,    1,    1
+        1,    1,    1,    1,    1,    1,    1,    1,    1
     } ;
 
-static yyconst short int yy_base[51] =
+static yyconst short int yy_base[49] =
     {   0,
-        0,    0,   13,  125,    8,    0,   15,   23,    0,    0,
-        0,    0,   31,   39,   38,   46,    0,   53,    0,   61,
-      125,   63,    0,    0,    0,   71,   77,   79,    0,    0,
-        0,   87,  125,    0,   95,    0,    0,  103,  105,    0,
-      113,  115,    0,  125,    0,    0,  125,    0,  125,   10
+        0,    0,   11,  125,    8,  125,   15,   23,    0,    0,
+        0,   31,   39,   38,   46,    0,   53,    0,   61,  125,
+       63,    0,    0,    0,   71,   77,   79,    0,    0,    0,
+       87,  125,    0,   95,    0,    0,  103,  105,    0,  113,
+      115,    0,  125,    0,    0,  125,    0,  125
     } ;
 
-static yyconst short int yy_def[51] =
+static yyconst short int yy_def[49] =
     {   0,
-       49,    1,   49,   49,   49,   50,   49,   49,    5,   50,
-        7,    7,   49,   49,   14,   49,    8,   49,   13,   49,
-       49,   20,   14,   15,   18,   49,   49,   27,   20,   22,
-       26,   49,   49,   27,   32,   28,   32,   49,   38,   35,
-       49,   41,   38,   49,   39,   41,   49,   42,    0,   49
+       48,    1,   48,   48,   48,   48,   48,   48,    5,    7,
+        7,   48,   48,   13,   48,    8,   48,   12,   48,   48,
+       19,   13,   14,   17,   48,   48,   26,   19,   21,   25,
+       48,   48,   26,   31,   27,   31,   48,   37,   34,   48,
+       40,   37,   48,   38,   40,   48,   41,    0
     } ;
 
 static yyconst short int yy_nxt[135] =
     {   0,
         4,    5,    6,    4,    4,    4,    4,    7,    8,    9,
-       10,   10,   49,   49,   49,   11,   12,   49,   13,   14,
-       14,   49,   49,   15,   16,   49,   49,   49,   17,   49,
-       18,   17,   19,   49,   13,   20,   20,   21,   49,   22,
-       23,   49,   13,   24,   49,   49,   24,   16,   49,   49,
-       49,   49,   49,   18,   25,   49,   13,   26,   27,   49,
-       49,   28,   29,   49,   13,   49,   49,   21,   30,   49,
-       49,   30,   31,   49,   32,   49,   49,   33,   34,   49,
-       35,   49,   49,   33,   36,   49,   49,   36,   37,   49,
-       13,   38,   38,   21,   49,   39,   40,   49,   49,   49,
+       48,   48,   48,   48,   48,   10,   11,   48,   12,   13,
+       13,   48,   48,   14,   15,   48,   48,   48,   16,   48,
+       17,   16,   18,   48,   12,   19,   19,   20,   48,   21,
+       22,   48,   12,   23,   48,   48,   23,   15,   48,   48,
+       48,   48,   48,   17,   24,   48,   12,   25,   26,   48,
+       48,   27,   28,   48,   12,   48,   48,   20,   29,   48,
+       48,   29,   30,   48,   31,   48,   48,   32,   33,   48,
+       34,   48,   48,   32,   35,   48,   48,   35,   36,   48,
+       12,   37,   37,   20,   48,   38,   39,   48,   48,   48,
 
-       41,   49,   49,   42,   43,   49,   32,   49,   49,   44,
-       45,   49,   49,   45,   46,   49,   35,   49,   49,   47,
-       48,   49,   49,   48,    3,   49,   49,   49,   49,   49,
-       49,   49,   49,   49
+       40,   48,   48,   41,   42,   48,   31,   48,   48,   43,
+       44,   48,   48,   44,   45,   48,   34,   48,   48,   46,
+       47,   48,   48,   47,    3,   48,   48,   48,   48,   48,
+       48,   48,   48,   48
     } ;
 
 static yyconst short int yy_chk[135] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    5,
-        5,   50,    3,    0,    0,    5,    7,    0,    7,    7,
+        3,    0,    0,    0,    0,    5,    7,    0,    7,    7,
         7,    0,    0,    7,    8,    0,    0,    0,    8,    0,
-        8,    8,   13,    0,   13,   13,   13,   13,    0,   13,
-       14,    0,   14,   15,    0,    0,   15,   16,    0,    0,
-        0,    0,    0,   16,   18,    0,   18,   18,   18,    0,
-        0,   18,   20,    0,   20,    0,    0,   20,   22,    0,
-        0,   22,   26,    0,   26,    0,    0,   26,   27,    0,
-       27,    0,    0,   27,   28,    0,    0,   28,   32,    0,
-       32,   32,   32,   32,    0,   32,   35,    0,    0,    0,
+        8,    8,   12,    0,   12,   12,   12,   12,    0,   12,
+       13,    0,   13,   14,    0,    0,   14,   15,    0,    0,
+        0,    0,    0,   15,   17,    0,   17,   17,   17,    0,
+        0,   17,   19,    0,   19,    0,    0,   19,   21,    0,
+        0,   21,   25,    0,   25,    0,    0,   25,   26,    0,
+       26,    0,    0,   26,   27,    0,    0,   27,   31,    0,
+       31,   31,   31,   31,    0,   31,   34,    0,    0,    0,
 
-       35,    0,    0,   35,   38,    0,   38,    0,    0,   38,
-       39,    0,    0,   39,   41,    0,   41,    0,    0,   41,
-       42,    0,    0,   42,   49,   49,   49,   49,   49,   49,
-       49,   49,   49,   49
+       34,    0,    0,   34,   37,    0,   37,    0,    0,   37,
+       38,    0,    0,   38,   40,    0,   40,    0,    0,   40,
+       41,    0,    0,   41,   48,   48,   48,   48,   48,   48,
+       48,   48,   48,   48
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -397,7 +397,7 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 1 "thema_4.l"
 #define INITIAL 0
 /*regex declarations */
 #line 404 "lex.yy.c"
@@ -551,7 +551,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 9 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 9 "thema_4.l"
 
 
 #line 558 "lex.yy.c"
@@ -605,7 +605,7 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 50 )
+				if ( yy_current_state >= 49 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -639,52 +639,52 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 11 "thema_4.l"
 {/* correct form */
 printf("The following expression: %s is acceptable\n",yytext);
 }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 15 "thema_4.l"
 {/* 0 constant false form */
 printf("0 constant is not allowed.Expression was: %s\n",yytext);
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 19 "thema_4.l"
 {/* x=y false form*/
 printf("The following expression: %s is not acceptable\n",yytext);
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 23 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 23 "thema_4.l"
 {/* missing ';' false form */
 printf("You forgot the ';' symbol in the following expression: %s\n",yytext);
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 27 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 27 "thema_4.l"
 {/* missing constants or/and variables false form */
 printf("You forgot some constants or/and variables in the following expression: %s\n",yytext);
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 31 "C:\\Users\\nikos\\Desktop\\thema_4.l"
-/*eat up whitespace*/
+#line 31 "thema_4.l"
+/*eat up whitespace and line change*/
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 33 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 33 "thema_4.l"
 printf( "Unrecognized character: %s\n", yytext ); /* mark any other character as unrecognized*/
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 35 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 35 "thema_4.l"
 ECHO;
 	YY_BREAK
 #line 691 "lex.yy.c"
@@ -979,7 +979,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 50 )
+			if ( yy_current_state >= 49 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1014,11 +1014,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 50 )
+		if ( yy_current_state >= 49 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 49);
+	yy_is_jam = (yy_current_state == 48);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1573,10 +1573,10 @@ int main()
 	return 0;
 	}
 #endif
-#line 35 "C:\\Users\\nikos\\Desktop\\thema_4.l"
+#line 35 "thema_4.l"
 
 
 main() {
-printf("Give some variable declaration expressions.Examples:'x=random_name+4;', 'my_var =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained and variable names should be one letter only:\n");
+printf("Give some variable declaration expressions.Examples:'x=random_name+4;', 'my_var =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained.\nVariable names cant start with number and they must contain only these characters:A-Z,a-z,1-9 and '_'.\n");
 yylex();
 }

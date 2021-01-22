@@ -28,13 +28,13 @@ printf("You forgot the ';' symbol in the following expression: %s\n",yytext);
 printf("You forgot some constants or/and variables in the following expression: %s\n",yytext);
 }
 
-{W1}+ /*eat up whitespace*/
+{W1}+ /*eat up whitespace and line change*/
 
 . printf( "Unrecognized character: %s\n", yytext ); /* mark any other character as unrecognized*/
 
 %%
 
 main() {
-printf("Give some variable declaration expressions.Examples:'x=random_name+4;', 'my_var =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained and variable names should be one letter only:\n");
+printf("Give some variable declaration expressions.Examples:'x=random_name+4;', 'my_var =5 +l/y;'\nTypes as 'x=y;' are not accepted.Zero constant cant be contained.\nVariable names cant start with number and they must contain only these characters:A-Z,a-z,1-9 and '_'.\n");
 yylex();
 }
