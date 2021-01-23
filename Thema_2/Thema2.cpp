@@ -134,7 +134,7 @@ int main()
 {
 	srand(time(NULL)); // Giving  the time of the cpu as a seed to our rand () function
 	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
-	cout << testSymbol.Expression << endl;
+	cout << testSymbol.Expression << endl; // testSymbol  = "<E>";
 	testSymbol.ReplaceCharacters();
 	system("pause");
 	return 0;
