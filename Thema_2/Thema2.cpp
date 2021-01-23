@@ -40,15 +40,15 @@ public:
 		int j;
 		for (int i = 0; i < 50; i++) {
 			j = 0;
-			//if (!Checker(Expression))
-			//{
-				//break;
+			if (!Checker(Expression))
+			{
+				break;
 				/*
 				* if the checker returns false it means we have a final symbol
 				* as the most left position so we transfer to the next most left position
 				* with a non-final symbol
 				*/
-			//}
+			}
 
 			while (Expression[j] != '<')
 			{
