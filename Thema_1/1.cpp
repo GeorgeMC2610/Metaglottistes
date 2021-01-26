@@ -23,8 +23,8 @@ int main()
 {
 	//initial message to be shown
 	cout << "Exercise 1 in 'Metaglottistes.'" << endl;
-	cout << "ADMISSIONS: Let q1, q2 be the states of the Deterministic Stack Automaton, where q1 is a non-final state and q2 is a final state." << endl;
-	cout << "Let 'n' be a dummy element in the bottom of the stack." << endl;
+	cout << "ADMISSIONS: Let k1, k2 be the states of the Deterministic Stack Automaton, where k1 is a non-final state and k2 is a final state." << endl;
+	cout << "Let '$' be a dummy element in the bottom of the stack." << endl;
 	cout << "As soon as you type 'stop', the program will exit." << endl << endl;
 
 	string input;
@@ -47,9 +47,9 @@ int main()
 			int input_length = input.length();
 
 			//push a dummy element into the stack. This will help us make various tests easier. Also, keep track of the accepted input state.
-			NAS_stack.push('n');
+			NAS_stack.push('$');
 			string error_output = "";
-			string state = "q2";
+			string state = "k2";
 
 			//for every character in the input
 			for (int i = 0; i < input_length; i++)
@@ -61,42 +61,49 @@ int main()
 				if (current_element == 'x')
 				{
 					NAS_stack.push(current_element);
-					state = "q1";
+					state = "k1";
 				}
-				//otherwise, if it is a 'y', it means that we have to pop one character out from the stack.
-				else if (!NAS_stack.empty())
+				//if it is a 'y' character, but there are still 'x' characters inside the stack, we pop one out.
+				else if (NAS_stack.top() != '$')
 				{
 					NAS_stack.pop();
 
-					if (!NAS_stack.empty() && NAS_stack.top() == 'n')
-						state = "q2";
+					if (NAS_stack.top() == '$')
+						state = "k2";
 					else
-						state = "q1";
+					{
+						error_output = "Stack still has items to iterate.";
+						state = "k1";
+					}
+						
+				}
+				//but if it is a 'y' character, with '$' the only element in the stack, it causes an error. At this point we've tried to pop more elements from the stack.
+				else
+				{
+					state = "k1";
+					cout << "Tried to pop the element '$'. Cannot continue." << endl;
+					error_output = "Tried to pop the element '$'.";
+					break;
 				}
 
 				//after every loop, we create a substring of the input, representing the remainder of the elements to be tested.
 				//we also use DisplayStack(), which outputs the stack after every loop.
+
 				string remaining_input = input.substr(i + 1, input_length - 1);
+				if (remaining_input.compare("") != 0)
+					state = "k1";
+				else
+					remaining_input = "(empty)";
+
 				cout << (i + 1) << ". Current State: " << state << ", Stack Items: ";
 				DisplayStack(NAS_stack);
 				cout << ", Remaining Input: " << remaining_input << endl;
 			}
 
-			if (NAS_stack.empty())
-			{
-				error_output = "Stack is empty.";
-				state = "q1";
-			}
-			else if (NAS_stack.top() == 'x')
-			{
-				error_output = "Element 'n' is either absent or not the top element.";
-				state = "q1";
-			}
-
 			//here is the final check. If the stack's top element is our dummy character, it means that the input is correct
-			if (state.compare("q2") == 0)
+			if (state.compare("k2") == 0)
 				cout << endl << "String '" << input << "' is accepted." << endl << endl;
-			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than 'n', the input is false.
+			//for any other state of the stack, the input is incorrect. If the top element happens to be something else than '$', the input is false.
 			else
 				cout << endl << "String '" << input << "' is NOT accepted." << endl << "Error message: " << error_output << endl << endl;
 		}
