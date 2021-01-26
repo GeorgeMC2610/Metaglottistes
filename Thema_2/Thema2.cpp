@@ -19,13 +19,13 @@ public:
 
 	bool Checker(string s)
 	{
-		/*THe checker function scans from the left to the right to find the most left non-final symbol.*/
+		/*The checker function scans from the left to the right to find the most left non-final symbol.*/
 		for (int i = 0; i < s.length(); i++)
 		{
 
 			if (s[i] == '<')
 			{
-				return true; //return true true if it finds it
+				return true; //return true if it finds it
 			}
 		}
 		return false; //and false otherwise
@@ -33,8 +33,8 @@ public:
 	}
 
 	void ReplaceCharacters()
-	{ /*This function replace the most left symbol in our string with an other final or
-	  non-final according to the grammaticall rules we were given if checker function
+	{ /*This function replace the most left non-terminal symbol in our string with another final or
+	  non-final symbol/s according to the grammaticall rules we were given, if checker function
 	  has returned true*/
 		int random;
 		int j;
@@ -44,9 +44,8 @@ public:
 			{
 				break;
 				/*
-				* if the checker returns false it means we have a final symbol
-				* as the most left position so we transfer to the next most left position
-				* with a non-final symbol
+				* if the checker returns false it means we have only terminal symbols, so we break.
+				* Else we transfer to the next most left position with a non-final symbol				
 				*/
 			}
 
@@ -54,7 +53,8 @@ public:
 			{
 				j++;
 			}
-			switch (Expression[j + 1])
+
+			switch (Expression[j + 1]) //Depending on the non-terminal symbol, we choose the corresponding grammatical rule 
 			{
 			case 'E':
 				cout << "According to the grammatical rule :  <E> ::= (<Y>) " << endl;
@@ -108,8 +108,8 @@ public:
 				}
 				/*
 				* According to the grammatical rules  we have  <A> --> v|<E>
-				* and <B> --> -<Y>|+<Y> | empty space
-				* so  in this case we should choose one symbol be chance ,
+				* and <B> --> -<Y>|+<Y>| empty space
+				* so in this case we should choose one symbol by chance ,
 				* in this case we use the rand() function in order to choose a symbol
 				* for the <A> and <B>
 				*
@@ -123,8 +123,8 @@ public:
 			cout << Expression << endl;
 			cout << endl;
 			/*
-			we give 50 steps for the replace to make a string that contains only non-final symbols if this is don't happen
-			 it will leave the nono-final symbols as they are
+			We give 50 steps for the replace to make a string that contains only final symbols. If this doesn't happen
+			it will leave the non-final symbols as they are
 			*/
 		}
 	}
@@ -132,7 +132,7 @@ public:
 
 int main()
 {
-	srand(time(NULL)); // Giving  the time of the cpu as a seed to our rand () function
+	srand(time(NULL)); // Giving the time of the cpu as a seed to our rand () function
 	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
 	cout << testSymbol.Expression << endl; // testSymbol  = "<E>";
 	testSymbol.ReplaceCharacters();
