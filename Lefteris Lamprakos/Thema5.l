@@ -1,5 +1,4 @@
 Y "line "|"triangle "|"square "|"pentagon "|"hexagon "|"heptagon "|"octagon "
-T {Y}[ABCDEFGH]+
 X1 [BCDEFGH]*"A"[BCDEFGH]*("A"[BCDEFGH]*)+
 X2 [ACDEFGH]*"B"[ACDEFGH]*("B"[ACDEFGH]*)+
 X3 [ABDEFGH]*"C"[ABDEFGH]*("C"[ABDEFGH]*)+
@@ -29,7 +28,7 @@ X8 [ABCDEFG]*"H"[ABCDEFG]*("H"[ABCDEFG]*)+
 "heptagon "[ABCDEFGH]{7} printf("CORRECT EXPRESSION");
 "octagon "[ABCDEFGH]{8} printf("CORRECT EXPRESSION");
 
-({T})?[^\n]* printf("UNRECOGNIZED CHARACTER/S");
+[^\n]+ printf("UNRECOGNIZED CHARACTER/S");
 %%
 int main() 
 {
