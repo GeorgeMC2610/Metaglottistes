@@ -45,7 +45,7 @@ public:
 				break;
 				/*
 				* if the checker returns false it means we have only terminal symbols, so we break.
-				* Else we transfer to the next most left position with a non-final symbol				
+				* Else we transfer to the next most left position with a non-final symbol
 				*/
 			}
 
@@ -54,7 +54,7 @@ public:
 				j++;
 			}
 
-			switch (Expression[j + 1]) //Depending on the non-terminal symbol, we choose the corresponding grammatical rule 
+			switch (Expression[j + 1]) //Depending on the non-terminal symbol, we choose the corresponding grammatical rule
 			{
 			case 'E':
 				cout << "According to the grammatical rule :  <E> ::= (<Y>) " << endl;
@@ -134,7 +134,6 @@ int main()
 {
 	srand(time(NULL)); // Giving the time of the cpu as a seed to our rand () function
 	Symbol testSymbol("<E>"); // We begin with <E> according to our rules so the Symbol() constructor takes <E> as an overload
-	cout << testSymbol.Expression << endl; // testSymbol  = "<E>";
 	testSymbol.ReplaceCharacters();
 	system("pause");
 	return 0;
