@@ -8,27 +8,27 @@ X6 [ABCDEGH]*"F"[ABCDEGH]*("F"[ABCDEGH]*)+
 X7 [ABCDEFH]*"G"[ABCDEFH]*("G"[ABCDEFH]*)+
 X8 [ABCDEFG]*"H"[ABCDEFG]*("H"[ABCDEFG]*)+ 
 %%
-"point "[Α-Η]{2,} printf("TOO MANY LETTERS");
-"line "[Α-Η]{3,} printf("TOO MANY LETTERS");
-"triangle "[Α-Η]{4,} printf("TOO MANY LETTERS");
-"square "[Α-Η]{5,} printf("TOO MANY LETTERS");
-"pentagon "[Α-Η]{6,} printf("TOO MANY LETTERS");
-"hexagon "[Α-Η]{7,} printf("TOO MANY LETTERS");
-"heptagon "[Α-Η]{8,} printf("TOO MANY LETTERS");
-"octagon "[Α-Η]{9,} printf("TOO MANY LETTERS");
+"point "[ABCDEFGH]{2,} printf("TOO MANY LETTERS"); /*check if the letters are more than the given word or shape could have, lines 14-21*/
+"line "[ABCDEFGH]{3,} printf("TOO MANY LETTERS"); /*if yes,a TOO MANY LETTERS message will appear*/
+"triangle "[ABCDEFGH]{4,} printf("TOO MANY LETTERS");
+"square "[ABCDEFGH]{5,} printf("TOO MANY LETTERS");
+"pentagon "[ABCDEFGH]{6,} printf("TOO MANY LETTERS");
+"hexagon "[ABCDEFGH]{7,} printf("TOO MANY LETTERS");
+"heptagon "[ABCDEFGH]{8,} printf("TOO MANY LETTERS");
+"octagon "[ABCDEFGH]{9,} printf("TOO MANY LETTERS");
 
-{Y}({X1}|{X2}|{X3}|{X4}|{X5}|{X6}|{X7}|{X8}) printf("DUPLICATE/S");
+{Y}({X1}|{X2}|{X3}|{X4}|{X5}|{X6}|{X7}|{X8}) printf("DUPLICATE/S"); /*check if there are any duplicates,if yes,a DUPLICATE message will appear*/
 
-"point "[Α-Η] printf("CORRECT EXPRESSION");
-"line "[Α-Η]{2} printf("CORRECT EXPRESSION");
-"triangle "[Α-Η]{3} printf("CORRECT EXPRESSION");
-"square "[Α-Η]{4} printf("CORRECT EXPRESSION");
-"pentagon "[Α-Η]{5} printf("CORRECT EXPRESSION");
-"hexagon "[Α-Η]{6} printf("CORRECT EXPRESSION");
-"heptagon "[Α-Η]{7} printf("CORRECT EXPRESSION");
-"octagon "[Α-Η]{8} printf("CORRECT EXPRESSION");
+"point "[ABCDEFGH] printf("CORRECT EXPRESSION"); /*Here, after we check for duplicates or more letters*/
+"line "[ABCDEFGH]{2} printf("CORRECT EXPRESSION"); /*it will check if the number of letters are EXACTLY as many as they should be*/
+"triangle "[ABCDEFGH]{3} printf("CORRECT EXPRESSION"); /*etc 3 for triangle,8 for octagon, lines 27-32*/
+"square "[ABCDEFGH]{4} printf("CORRECT EXPRESSION"); /*if thats true,it will print the message CORRECT*/
+"pentagon "[ABCDEFGH]{5} printf("CORRECT EXPRESSION");
+"hexagon "[ABCDEFGH]{6} printf("CORRECT EXPRESSION");
+"heptagon "[ABCDEFGH]{7} printf("CORRECT EXPRESSION");
+"octagon "[ABCDEFGH]{8} printf("CORRECT EXPRESSION");
 
-[^\n]+ printf("UNRECOGNIZED CHARACTER/S");
+[^\n]+ printf("UNRECOGNIZED CHARACTER/S"); /*show UNRECOGNIZED CHARACTERS if the user tries to write unwanted characters or if he makes an alphabetical mistake*/
 %%
 int main() 
 {
